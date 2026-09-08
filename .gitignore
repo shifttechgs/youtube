@@ -1,0 +1,32 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# Never commit real secrets or env files (templates use .example)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+
+# Dependencies / build output (in case a video folder ships a sample project)
+node_modules/
+vendor/
+dist/
+build/
+
+# Large media — this repo is text/templates only; keep video files out
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.wav
+*.zip
+*.psd
+*.prproj
