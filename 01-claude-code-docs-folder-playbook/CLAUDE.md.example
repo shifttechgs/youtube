@@ -1,0 +1,60 @@
+<!--
+Copy this to your project root as CLAUDE.md (or merge the sections into the one you have).
+Works as-is for Claude Code. For Cursor, paste the same content into .cursorrules;
+for other agents, into whatever root instruction file they read.
+Delete this comment and anything below that doesn't apply to your project.
+-->
+
+# Project instructions
+
+## Read the docs first
+
+- **Before adding or changing a feature:** read `docs/instructions.md` and
+  `docs/memory.md`.
+- **Before any SEO, schema, or content work:** read `docs/seo.md` and `docs/business.md`.
+- **Before touching styles, layout, or motion:** read `docs/design.md`.
+- **Before anything deploy-related:** read `docs/deployment.md` and `docs/security.md`.
+
+Treat `docs/memory.md` *Standing decisions* and `docs/instructions.md` *Removed and not
+coming back* as binding. If you think one should change, say so and wait — don't quietly
+reverse it.
+
+## Keep the docs true
+
+Update the relevant doc **in the same commit** as the code change it describes. A doc
+that lags the code will be trusted and be wrong.
+
+- Living docs (`docs/seo.md`, `docs/memory.md`, `docs/todo.md`) get updated in place.
+- Dated snapshots in `docs/reports/` are never edited after the day they're written.
+- Facts cite a source: `` `config/services.php` `` not "about R1,200".
+
+## Never fabricate
+
+If a real asset doesn't exist, the feature ships **empty** and the task moves to the
+"needs the business owner" list in `docs/seo.md`. Specifically, do not:
+
+- invent reviews, ratings, or a review count
+- pass off stock photos as real "before/after" work
+- build a page for a service the business doesn't actually offer
+- write a founder/team bio with any detail that isn't already public and true
+- answer a legal-adjacent question with a promise — reframe around what's actually
+  controlled, flagged as not legal advice
+
+Ask the owner instead. "I don't have a real value for this" is always an acceptable
+answer.
+
+## Secrets
+
+Never write a real secret into any file under version control — not code, not a doc, not
+a commit message. Referring to a `DEPLOY_TOKEN` env var is fine; pasting its value is a
+permanent leak. Full rules in `docs/security.md`.
+
+<!-- Add project-specific build/test/run commands below. -->
+
+## Commands
+
+- Install: `...`
+- Dev server: `...`
+- Build: `...`
+- Test: `...`
+- Lint / format: `...`

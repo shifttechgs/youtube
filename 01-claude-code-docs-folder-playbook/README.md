@@ -5,43 +5,55 @@
 > **standalone** — everything the video refers to is here, nothing depends on other
 > folders.
 
-## What this is
+## Who this is for
 
-The set of **living documentation templates** I keep in a `docs/` folder inside every
-client project. Claude Code reads them at the start of a session so it doesn't
-re-litigate settled decisions, re-break things that were deliberately removed, or invent
-facts about the business.
+You're building or maintaining a small client site with an AI coding agent (Claude Code,
+Cursor, etc.), and you want the agent to stop re-deriving your architecture, re-adding
+libraries you deleted, and inventing business facts. You'll copy one folder into your
+project, spend ~20 minutes filling in blanks, and add one file to your repo root.
 
-Everything here is **genericized**. Every real client detail is a `{{PLACEHOLDER}}` you
-fill in. Fork it, gut it, make it yours.
+No build step, no dependencies. It's Markdown.
 
-## How to use it
+## Get started (≈20 min)
 
-1. Copy the files you want into your own project as `docs/`.
-2. Find-and-replace the `{{PLACEHOLDERS}}` (each file lists its own at the top).
-3. From then on, **update the doc in the same commit as the code change** it describes.
-   A doc that lags the code is worse than no doc — the agent trusts it and is wrong.
-4. Point the agent at them. One line in `CLAUDE.md` is enough:
+1. **Copy the skeleton into your project:**
+   ```sh
+   cp -r docs-template /path/to/your-project/docs
    ```
-   Before adding a feature, read docs/instructions.md and docs/memory.md.
-   Before SEO or content work, read docs/seo.md and docs/business.md.
-   Update the relevant doc in the same commit as any change it describes.
-   ```
+   (or copy the `docs-template/` folder in your editor and rename it to `docs/`). The
+   files inside are already named the way your project needs them — `README.md`,
+   `instructions.md`, `memory.md`, and so on.
 
-## The files
+2. **Fill in the blanks.** Open [`PLACEHOLDERS.md`](./PLACEHOLDERS.md). Do one
+   find-and-replace pass for the ~24 global `{{TOKENS}}` (business name, domain, stack,
+   …), then write real content into the per-file blanks it lists (your services table,
+   your SEO scores, your deploy pipeline).
 
-| File | Real-project equivalent | What it's for |
+3. **Delete the example scaffolding.** Every illustrative block is inside a collapsed
+   `<details>` marked *Example* or an `<!-- EXAMPLE -->` comment. Delete those and the
+   `<!-- … -->` header at the top of each file. When `grep -rn '{{' docs/` returns
+   nothing, you're done.
+
+4. **Wire it to the agent.** Copy [`CLAUDE.md.example`](./CLAUDE.md.example) to your repo
+   root as `CLAUDE.md` (or merge its sections into the one you have). It tells the agent
+   which doc to read before which kind of work.
+
+5. **Commit `docs/` on its own.** From then on, update the relevant doc *in the same
+   commit* as the code change it describes. A doc that lags the code gets trusted and is
+   wrong.
+
+## What's in this folder
+
+| Path | This is… | You…|
 |---|---|---|
-| [`01-docs-folder-pattern.md`](./01-docs-folder-pattern.md) | `docs/README.md` | Why a `docs/` folder; what each doc covers and what it must *not* |
-| [`02-conventions-and-gotchas.md`](./02-conventions-and-gotchas.md) | `docs/instructions.md` | Architecture rules, framework traps, "we tried X, don't bring it back" |
-| [`03-project-memory-pattern.md`](./03-project-memory-pattern.md) | `docs/memory.md` | A dated decision log + "standing decisions, don't silently reverse" |
-| [`04-design-system-doc.md`](./04-design-system-doc.md) | `docs/design.md` | Document tokens/type/motion so the agent stays visually consistent |
-| [`05-business-reference-template.md`](./05-business-reference-template.md) | `docs/business.md` | Fill-in-the-blanks sheet of business facts that drive copy & SEO |
-| [`06-seo-geo-playbook.md`](./06-seo-geo-playbook.md) | `docs/seo.md` + audit | Scoreboard method, code-vs-owner split, the no-fabrication rule |
-| [`07-deployment-and-verification.md`](./07-deployment-and-verification.md) | `docs/deployment.md` | A deploy pipeline **plus** the step everyone skips: proving it landed |
-| [`08-offsite-authority-checklist.md`](./08-offsite-authority-checklist.md) | `docs/citations.md` | Directory citations, NAP consistency, partner & press outreach templates |
-| [`09-gbp-post-workflow.md`](./09-gbp-post-workflow.md) | `docs/gbp_posts.md` | A queue → posted log for manual Google Business Profile updates |
-| [`SECURITY.md`](./SECURITY.md) | *new* | What never to commit, `.env` discipline, safe token patterns, indexing |
+| **[`docs-template/`](./docs-template/)** | the thing you copy — the actual doc set, one file per `docs/` doc | copy it into your project as `docs/` |
+| **[`PLACEHOLDERS.md`](./PLACEHOLDERS.md)** | every `{{TOKEN}}` in one table + the write-by-hand blanks | work through it once, right after copying |
+| **[`CLAUDE.md.example`](./CLAUDE.md.example)** | the agent's root instruction file | copy to your repo root as `CLAUDE.md` |
+| [`notes/`](./notes/) | optional background — *why* each doc earns its place, one short note per doc, numbered to the video | read for context; nothing here gets copied |
+| [`SECURITY.md`](./SECURITY.md) | this repo's security policy | read only if reporting a problem with these templates |
+
+`docs-template/` is the source of truth. If a note in `notes/` and a template ever
+disagree, the template wins.
 
 ## The one rule that makes all of this work
 
