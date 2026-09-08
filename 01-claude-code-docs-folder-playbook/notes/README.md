@@ -6,7 +6,7 @@ the thing you copy is [`../docs-template/`](../docs-template/). Start with the
 
 Each note is a few paragraphs on the reasoning behind one `docs/` file — the failure it
 prevents, the war story that shaped it, and the one part people get wrong. They're
-numbered to match the video walkthrough.
+numbered to match the [video walkthrough](https://www.youtube.com/watch?v=W6uN7FEzxls).
 
 | Note | Explains | Copy the doc from |
 |---|---|---|

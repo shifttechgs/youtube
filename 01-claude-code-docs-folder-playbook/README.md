@@ -1,6 +1,6 @@
 # 01 · The `docs/` folder that makes Claude Code build like a senior dev
 
-> **Video:** _Set Up Claude Code Like This: Cheaper Tokens, Actual 10x Results_ · [watch ▶]({{VIDEO_URL}})
+> **Video:** _Set Up Claude Code Like This: Cheaper Tokens, Actual 10x Results_ · [watch ▶](https://www.youtube.com/watch?v=W6uN7FEzxls)
 > Part of the [shifttechgs/youtube](../README.md) companion-files repo. This folder is
 > **standalone** — everything the video refers to is here, nothing depends on other
 > folders.
