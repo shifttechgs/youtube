@@ -1,0 +1,15 @@
+# Normalize all text files to LF in the repo; check out as-is per platform.
+* text=auto eol=lf
+
+# Explicit: these are always text with LF
+*.md   text eol=lf
+*.txt  text eol=lf
+LICENSE text eol=lf
+
+# Binary — never touch line endings
+*.png  binary
+*.jpg  binary
+*.webp binary
+*.avif binary
+*.pdf  binary
+*.zip  binary
